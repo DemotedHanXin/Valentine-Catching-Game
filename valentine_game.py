@@ -81,7 +81,7 @@ class ValentineQuestion(FloatLayout):
 
         # YES button
         yes_btn = Button(
-            text="Yes, good sir",
+            text="Yes, Fly",
             font_name='Gothess',
             size_hint=(None, None),
             size=(300, 90),
