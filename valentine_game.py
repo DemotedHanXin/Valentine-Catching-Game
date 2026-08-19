@@ -1,5 +1,8 @@
 import os
 import sys
+# 强制 Kivy 使用 SDL2 音频后端。
+# 必须放在任何 kivy import 之前。
+os.environ["KIVY_AUDIO"] = "sdl2"
 import kivy
 from kivy.app import App
 from kivy.uix.button import Button
@@ -285,7 +288,7 @@ class GameScreen(FloatLayout):
             outline_color=(0, 0, 0, 1),
             size_hint=(None, None),
             size=(300, 70),
-            pos=(15, Window.height - 80)
+            pos=(50, Window.height - 80)
         )
         self.add_widget(self.score_label)
 
@@ -298,7 +301,7 @@ class GameScreen(FloatLayout):
             outline_color=(0, 0, 0, 1),
             size_hint=(None, None),
             size=(200, 70),
-            pos=(Window.width - 210, Window.height - 80)
+            pos=(Window.width - 240, Window.height - 80)
         )
         self.add_widget(self.lives_label)
 
