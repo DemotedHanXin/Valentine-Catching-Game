@@ -1,16 +1,20 @@
 # -*- mode: python ; coding: utf-8 -*-
 
+from pathlib import Path
+
+PROJECT_ROOT = Path(SPEC).resolve().parent
+
 block_cipher = None
 
 a = Analysis(
-    ['valentine_game.py'],
-    pathex=[],
+    [str(PROJECT_ROOT / 'valentine_game.py')],
+    pathex=[str(PROJECT_ROOT)],
     binaries=[],
     datas=[
-        ('fonts/Gothess.ttf', 'fonts'),
-        ('assets/*.png', 'assets'),
-        ('music/*.mp3', 'music'),
-        ('sounds/*.mp3', 'sounds'),
+        (str(PROJECT_ROOT / 'fonts/Gothess.ttf'), 'fonts'),
+        (str(PROJECT_ROOT / 'assets/*.png'), 'assets'),
+        (str(PROJECT_ROOT / 'music/*.mp3'), 'music'),
+        (str(PROJECT_ROOT / 'sounds/*.mp3'), 'sounds'),
     ],
     hiddenimports=[
         'kivy.core.window',
@@ -58,6 +62,6 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon='cupid_ico.ico',
+    icon=str(PROJECT_ROOT / 'cupid_ico.ico'),
 
 )

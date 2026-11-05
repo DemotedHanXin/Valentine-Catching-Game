@@ -6,6 +6,7 @@ os.environ["KIVY_AUDIO"] = "sdl2"
 import kivy
 from kivy.app import App
 from kivy.uix.button import Button
+
 from kivy.uix.label import Label
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.image import Image
@@ -26,7 +27,7 @@ def resource_path(relative_path):
     try:
         base_path = sys._MEIPASS
     except Exception:
-        base_path = os.path.abspath(".")
+        base_path = os.path.dirname(os.path.abspath(__file__))
     return os.path.join(base_path, relative_path)
 
 # Register Gothess font
